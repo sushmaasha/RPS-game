@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ROCK PAPER SCISSOR</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        
+        <script src="https://kit.fontawesome.com/418fb55ca9.js" crossorigin="anonymous"></script>
+
+        <style>
+            .d1{
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+                background-color:cadetblue;
+            }
+            #d2{
+                margin-top: 50px;
+            }
+            .b1{
+                width: 250px;
+                display: grid;
+                grid-template-columns: auto auto auto;
+            }
+            img{
+                width: 250px;
+            }
+            #l1,#l2{
+                margin-left: 75px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            #i1,#i2,#i3{
+                color: rgb(3, 110, 113);
+            }
+        
+        </style>
+
+    </head>
+    <body style="background:-webkit-linear-gradient(right,skyblue,white)">
+        <div>
+            <h2 class="d1" style="margin-left: 33%; margin-right: 35%;">ROCK PAPER SCISSORS</h2>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div  class="row mb-4">
+                        <div class="row mt-4"></div>
+                        <div class="col-5">
+                            <img id="player" src="./paper.jpg"><br>
+                            <label id="l2"><h4>Player</h4></label>
+                        </div>
+                        <div class="col-2 mt-4">
+                            <h1 id="d2" style="font-family: 'Times New Roman', Times, serif;">VS</h1>
+                        </div>
+                        <div class="col-5">
+                            <img id="computer" src="./rock.jpg"><br>
+                            <label id="l1"><h4>Computer</h4></label>
+                        </div>
+                    </div>
+
+                    <div class="b1 mt-4" class="row">
+                        <button onclick="rock()"><i id="i1" class="fa-solid fa-hand-back-fist"></i> Rock</button>
+                        <button onclick="paper()"><i id="i2" class="fa-solid fa-hand"></i> Paper</button>
+                        <button onclick="scissor()"><i id="i3" class="fa-solid fa-hand-scissors"></i> Scissors</i></button>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        let x=0,a=0;
+        function rock(){
+            a=1;
+            document.getElementById("player").src = "rock.jpg";
+            comp();
+        }
+        function paper(){
+            a=2;
+            document.getElementById("player").src = "paper.jpg";
+            comp();
+        }
+        function scissor(){
+            a=3;
+            document.getElementById("player").src = "scissors.jpg";
+            comp();
+        }
+        function comp(){
+           let x=Math.floor((Math.random()*3)+1);
+           if(a==x){
+                alert("match tied");
+                if(x==1){
+                    document.getElementById("computer").src = "rock.jpg";
+                }
+                else if(x==2){
+                    document.getElementById("computer").src = "paper.jpg";
+                }
+                else{
+                    document.getElementById("computer").src = "scissors.jpg";
+                }
+           }
+           else if(a==1 && x==3) {
+            alert("player wins");
+            document.getElementById("computer").src = "scissors.jpg";
+           }
+           else if(a==2 && x==1) {
+            alert("player wins");
+            document.getElementById("computer").src = "rock.jpg";
+           }
+           else if(a==3 && x==2) {
+            alert("player wins");
+            document.getElementById("computer").src = "paper.jpg";
+           }
+           else{
+            alert("computer wins");
+            if(x==1){
+                    document.getElementById("computer").src = "rock.jpg";
+                }
+                else if(x==2){
+                    document.getElementById("computer").src = "paper.jpg";
+                }
+                else{
+                    document.getElementById("computer").src = "scissors.jpg";
+                }
+           }
+        }
+    </script>
+
+
+</html>
